@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/primary_green"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reportes y Estadísticas"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rendimiento del Mes (Mayo)"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Space android:layout_width="match_parent" android:layout_height="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView android:text="Total Recolectado:" android:textColor="@color/dark_text" android:textSize="14sp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+                    <TextView android:text="4,850 kg" android:textColor="@color/primary_green" android:textSize="14sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <Space android:layout_width="match_parent" android:layout_height="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView android:text="Servicios Completados:" android:textColor="@color/dark_text" android:textSize="14sp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+                    <TextView android:text="34" android:textColor="@color/black" android:textSize="14sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <Space android:layout_width="match_parent" android:layout_height="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tipos de Residuos Principales"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Space android:layout_width="match_parent" android:layout_height="12dp" />
+                <TextView android:text="• Plástico PET (45%)" android:textColor="@color/dark_text" android:textSize="14sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <Space android:layout_width="match_parent" android:layout_height="6dp" />
+                <TextView android:text="• Cartón Industrial (30%)" android:textColor="@color/dark_text" android:textSize="14sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                <Space android:layout_width="match_parent" android:layout_height="6dp" />
+                <TextView android:text="• Residuos Orgánicos (25%)" android:textColor="@color/dark_text" android:textSize="14sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

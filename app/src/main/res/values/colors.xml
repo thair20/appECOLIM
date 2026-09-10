@@ -1,0 +1,10 @@
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!-- Colores ECOLIM -->
+    <color name="primary_green">#2E7D32</color>
+    <color name="secondary_blue">#1976D2</color>
+    <color name="accent_orange">#FF9800</color>
+    <color name="background_light">#F5F5F5</color>
+    <color name="dark_text">#607D8B</color>
+</resources>
