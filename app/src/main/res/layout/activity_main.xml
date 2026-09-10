@@ -1,113 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ecolim"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:background="@color/white"
+    android:fillViewport="true">
 
-    <!-- Tarjeta central con transparencia para legibilidad -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#E6FFFFFF"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center">
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ECOLIM S.A.C."
-            android:textColor="@color/primary_green"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Sistema de Gestión de Recolección de Residuos"
-            android:textColor="#000000"
-            android:textSize="12sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Bienvenido"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Inicia sesión para continuar"
-            android:textColor="#000000"
-            android:textSize="12sp" />
-
-        <Space android:layout_width="match_parent" android:layout_height="24dp" />
-
-        <EditText
-            android:id="@+id/etUsuario"
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@color/white"
-            android:hint="Usuario"
-            android:inputType="text"
-            android:paddingStart="12dp"
-            android:textColor="#000000"
-            android:textColorHint="#787878"
-            android:textSize="14sp" />
+            android:layout_height="240dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ecolim"
+            android:contentDescription="ECOLIM" />
 
-        <Space android:layout_width="match_parent" android:layout_height="12dp" />
-
-        <EditText
-            android:id="@+id/etPassword"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@color/white"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
-            android:paddingStart="12dp"
-            android:textColor="#000000"
-            android:textColorHint="#787878"
-            android:textSize="14sp" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_screen">
 
-        <Space android:layout_width="match_parent" android:layout_height="20dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bienvenido"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnIniciarSesion"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/primary_green"
-            android:text="INICIAR SESIÓN"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="24dp"
+                android:text="Inicia sesión para continuar"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
 
-        <Space android:layout_width="match_parent" android:layout_height="10dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DNI"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
 
-        <Button
-            android:id="@+id/btnRegistrar"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="#1976D2"
-            android:text="REGISTRARSE"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+            <EditText
+                android:id="@+id/etUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_input_field"
+                android:hint="Ingresa tu DNI"
+                android:inputType="number"
+                android:maxLength="8"
+                android:importantForAutofill="no" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contraseña"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/bg_input_field"
+                android:hint="Ingresa tu contraseña"
+                android:inputType="textPassword"
+                android:importantForAutofill="no" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="24dp"
+                android:text="¿Olvidaste tu contraseña?"
+                android:textColor="@color/secondary_blue"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/btnIniciarSesion"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_button_primary"
+                android:text="INICIAR SESIÓN"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Demo: DNI 12345678 · Clave 1234"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:text="Versión 1.0.0 · ECOLIM S.A.C."
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp" />
+
+        </LinearLayout>
     </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Versión 1.0.0"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:textSize="12sp" />
-
-</LinearLayout>
+</ScrollView>

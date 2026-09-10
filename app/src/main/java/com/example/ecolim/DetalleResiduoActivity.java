@@ -1,47 +1,93 @@
 package com.example.ecolim;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.ecolim.model.DetalleItem;
+import com.example.ecolim.model.RecoleccionSession;
+import com.example.ecolim.util.WasteVisuals;
+
+import java.util.Locale;
+
+/** Pantalla 7: cantidad y observaciones de un tipo de residuo específico. */
 public class DetalleResiduoActivity extends AppCompatActivity {
 
-    private EditText etTipoResiduo, etCantidadResiduo, etEstadoContencion;
-    private Button btnGuardarContinuarResiduo;
-    private String clienteRecibido;
+    private TextView tvIconoGrande, tvNombreResiduoDetalle, tvCategoriaResiduoDetalle;
+    private EditText etCantidadResiduo, etObservacionesResiduo;
+    private Button btnMenos, btnMas, btnAgregarResiduoDetalle;
+
+    private long idWasteType;
+    private String nombreWasteType;
+    private String categoriaWasteType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalle_residuo); // Asegúrate de que el XML coincida
+        setContentView(R.layout.activity_detalle_residuo);
 
-        clienteRecibido = getIntent().getStringExtra("CLIENTE_KEY");
-        if (clienteRecibido == null) {
-            clienteRecibido = "Cliente General";
+        tvIconoGrande = findViewById(R.id.tvIconoGrande);
+        tvNombreResiduoDetalle = findViewById(R.id.tvNombreResiduoDetalle);
+        tvCategoriaResiduoDetalle = findViewById(R.id.tvCategoriaResiduoDetalle);
+        etCantidadResiduo = findViewById(R.id.etCantidadResiduo);
+        etObservacionesResiduo = findViewById(R.id.etObservacionesResiduo);
+        btnMenos = findViewById(R.id.btnMenos);
+        btnMas = findViewById(R.id.btnMas);
+        btnAgregarResiduoDetalle = findViewById(R.id.btnAgregarResiduoDetalle);
+
+        TextView btnVolver = findViewById(R.id.btnVolver);
+        btnVolver.setOnClickListener(v -> finish());
+
+        idWasteType = getIntent().getLongExtra("ID_WASTE_TYPE", -1);
+        nombreWasteType = getIntent().getStringExtra("NOMBRE_WASTE_TYPE");
+        categoriaWasteType = getIntent().getStringExtra("CATEGORIA_WASTE_TYPE");
+
+        tvNombreResiduoDetalle.setText(nombreWasteType);
+        tvCategoriaResiduoDetalle.setText(categoriaWasteType);
+        tvIconoGrande.setText(WasteVisuals.iconFor(categoriaWasteType));
+        tvIconoGrande.setBackgroundTintList(
+                android.content.res.ColorStateList.valueOf(WasteVisuals.colorFor(this, categoriaWasteType)));
+
+        btnMenos.setOnClickListener(v -> ajustarCantidad(-0.5));
+        btnMas.setOnClickListener(v -> ajustarCantidad(0.5));
+
+        btnAgregarResiduoDetalle.setOnClickListener(v -> agregarYVolver());
+    }
+
+    private void ajustarCantidad(double delta) {
+        double actual = leerCantidad();
+        double nueva = Math.max(0.5, actual + delta);
+        etCantidadResiduo.setText(String.format(Locale.US, "%.1f", nueva));
+    }
+
+    private double leerCantidad() {
+        try {
+            return Double.parseDouble(etCantidadResiduo.getText().toString().trim());
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+    }
+
+    private void agregarYVolver() {
+        double cantidad = leerCantidad();
+        if (cantidad <= 0) {
+            Toast.makeText(this, "Ingresa una cantidad válida", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (idWasteType == -1) {
+            Toast.makeText(this, "Error: tipo de residuo no reconocido", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        etTipoResiduo = findViewById(R.id.etTipoResiduo);         // Ajusta el ID según tu XML si es diferente
-        etCantidadResiduo = findViewById(R.id.etCantidadResiduo);     // Ajusta el ID según tu XML
-        etEstadoContencion = findViewById(R.id.etEstadoContencion);   // Ajusta el ID según tu XML
-        btnGuardarContinuarResiduo = findViewById(R.id.btnGuardarContinuarResiduo); // El botón verde de abajo
+        DetalleItem item = new DetalleItem(idWasteType, nombreWasteType, categoriaWasteType, cantidad);
+        item.observations = etObservacionesResiduo.getText().toString().trim();
+        RecoleccionSession.getInstance().items.add(item);
 
-        btnGuardarContinuarResiduo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String tipoResiduo = etTipoResiduo != null ? etTipoResiduo.getText().toString().trim() : "Plástico PET";
-                String cantidad = etCantidadResiduo != null ? etCantidadResiduo.getText().toString().trim() : "0";
-                String estado = etEstadoContencion != null ? etEstadoContencion.getText().toString().trim() : "Sellado";
-
-                Intent intent = new Intent(DetalleResiduoActivity.this, ConfirmacionActivity.class);
-                intent.putExtra("CLIENTE_KEY", clienteRecibido);
-                intent.putExtra("TIPO_RESIDUO_KEY", tipoResiduo);
-                intent.putExtra("CANTIDAD_KEY", cantidad);
-                intent.putExtra("ESTADO_KEY", estado);
-                startActivity(intent);
-            }
-        });
+        Toast.makeText(this, nombreWasteType + " agregado (" + cantidad + " kg)", Toast.LENGTH_SHORT).show();
+        finish();
     }
 }
