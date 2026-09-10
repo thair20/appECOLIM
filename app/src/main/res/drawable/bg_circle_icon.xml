@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Círculo genérico reutilizado como fondo de icono; el color se aplica en
+     tiempo de ejecución con setBackgroundTintList() según la categoría del residuo. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <solid android:color="@color/secondary_blue" />
+</shape>

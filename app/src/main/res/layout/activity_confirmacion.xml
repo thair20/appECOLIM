@@ -2,116 +2,105 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ecolim"
-    android:orientation="vertical">
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_screen">
 
-    <!-- Barra Superior -->
+    <TextView
+        android:id="@+id/tvCheckExito"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/bg_circle_success"
+        android:gravity="center"
+        android:text="✓"
+        android:textColor="@color/white"
+        android:textSize="44sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="¡Recolección registrada!"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center"
+        android:text="La información se ha guardado correctamente"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/primary_green"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="16dp">
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_card_white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Confirmación"
-            android:textColor="@color/white"
+            android:text="Código de recolección"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvCodigoRecoleccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:text="REC-2026-000000"
+            android:textColor="@color/secondary_blue"
             android:textSize="18sp"
             android:textStyle="bold" />
-    </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="16dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="Total recolectado"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
 
-            <!-- Tarjeta de Resumen con fondo blanco sólido para legibilidad -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Resumen del Servicio"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <Space android:layout_width="match_parent" android:layout_height="12dp" />
-
-                <TextView
-                    android:id="@+id/tvResumenCliente"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cliente: Cargando..."
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <Space android:layout_width="match_parent" android:layout_height="6dp" />
-
-                <TextView
-                    android:id="@+id/tvResumenFecha"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Fecha: Cargando..."
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <Space android:layout_width="match_parent" android:layout_height="6dp" />
-
-                <TextView
-                    android:id="@+id/tvResumenResiduo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Residuo: Cargando..."
-                    android:textColor="#000000"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <Space android:layout_width="match_parent" android:layout_height="6dp" />
-
-                <TextView
-                    android:id="@+id/tvResumenCantidad"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cantidad Total: 0 kg"
-                    android:textColor="@color/primary_green"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-        </LinearLayout>
-    </ScrollView>
-
-    <!-- Botón Inferior -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:padding="16dp">
-
-        <Button
-            android:id="@+id/btnFinalizarRegistrar"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:backgroundTint="@color/primary_green"
-            android:text="ENVIAR, SUBIR Y REGISTRAR"
-            android:textColor="@color/white"
+        <TextView
+            android:id="@+id/tvTotalKgConfirmacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="0.0 kg"
+            android:textColor="@color/primary_green"
+            android:textSize="22sp"
             android:textStyle="bold" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnVerDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_button_outline"
+        android:text="VER DETALLE"
+        android:textAllCaps="false"
+        android:textColor="@color/dark_text" />
+
+    <Button
+        android:id="@+id/btnFinalizarRegistrar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_button_primary"
+        android:text="NUEVA RECOLECCIÓN"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

@@ -11,8 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ECOLIM">
-        <activity android:name=".ClientesActivity" android:exported="false" android:theme="@style/Theme.ECOLIM" />
-        <activity android:name=".NuevaRecoleccionActivity" android:exported="false" android:theme="@style/Theme.ECOLIM" />
 
         <activity
             android:name=".MainActivity"
@@ -25,14 +23,16 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".DashboardActivity"
-            android:exported="false"
-            android:theme="@style/Theme.ECOLIM" />
-        <activity android:name=".DetalleResiduoActivity" android:exported="false" android:theme="@style/Theme.ECOLIM" />
+        <activity android:name=".DashboardActivity" android:exported="false" android:theme="@style/Theme.ECOLIM" />
+        <activity android:name=".ClientesActivity" android:exported="false" android:theme="@style/Theme.ECOLIM" />
+        <activity android:name=".UbicacionesActivity" android:exported="false" android:theme="@style/Theme.ECOLIM" />
+        <activity android:name=".NuevaRecoleccionActivity" android:exported="false" android:theme="@style/Theme.ECOLIM" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".AgregarResiduosActivity" android:exported="false" android:theme="@style/Theme.ECOLIM" />
+        <activity android:name=".DetalleResiduoActivity" android:exported="false" android:theme="@style/Theme.ECOLIM" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ResumenRecoleccionActivity" android:exported="false" android:theme="@style/Theme.ECOLIM" />
         <activity android:name=".ConfirmacionActivity" android:exported="false" android:theme="@style/Theme.ECOLIM" />
-        <activity android:name=".HistorialActivity" android:exported="false" android:theme="@style/Theme.ECOLIM" />
         <activity android:name=".ReportesActivity" android:exported="false" android:theme="@style/Theme.ECOLIM" />
+        <activity android:name=".HistorialActivity" android:exported="false" android:theme="@style/Theme.ECOLIM" />
         <activity android:name=".ConfiguracionActivity" android:exported="false" android:theme="@style/Theme.ECOLIM" />
 
     </application>

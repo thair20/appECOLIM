@@ -1,0 +1,53 @@
+warning: in the working copy of 'app/src/main/AndroidManifest.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/java/com/example/ecolim/ClientesActivity.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/java/com/example/ecolim/ConfiguracionActivity.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/java/com/example/ecolim/ConfirmacionActivity.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/java/com/example/ecolim/DashboardActivity.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/java/com/example/ecolim/DatabaseHelper.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/java/com/example/ecolim/DetalleResiduoActivity.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/java/com/example/ecolim/HistorialActivity.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/java/com/example/ecolim/MainActivity.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/java/com/example/ecolim/NuevaRecoleccionActivity.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/java/com/example/ecolim/ReportesActivity.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/res/layout/activity_clientes.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/res/layout/activity_configuracion.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/res/layout/activity_confirmacion.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/res/layout/activity_dashboard.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/res/layout/activity_detalle_residuo.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/res/layout/activity_historial.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/res/layout/activity_main.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/res/layout/activity_nueva_recoleccion.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/res/layout/activity_reportes.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/res/values/colors.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/res/values/dimens.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/res/values/strings.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/src/main/res/values/themes.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'build.gradle.kts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'gradle/libs.versions.toml', LF will be replaced by CRLF the next time Git touches it
+ app/src/main/AndroidManifest.xml                   |  18 [32m+[m[31m-[m
+ .../java/com/example/ecolim/ClientesActivity.java  |  91 [32m++[m[31m--[m
+ .../com/example/ecolim/ConfiguracionActivity.java  |  19 [32m+[m[31m-[m
+ .../com/example/ecolim/ConfirmacionActivity.java   |  93 [32m++[m[31m--[m
+ .../java/com/example/ecolim/DashboardActivity.java | 105 [32m++++[m[31m-[m
+ .../java/com/example/ecolim/DatabaseHelper.java    | 492 [32m++++++++++++++++++[m[31m---[m
+ .../com/example/ecolim/DetalleResiduoActivity.java | 106 [32m+++[m[31m--[m
+ .../java/com/example/ecolim/HistorialActivity.java |  69 [32m+[m[31m--[m
+ .../main/java/com/example/ecolim/MainActivity.java | 104 [32m++[m[31m---[m
+ .../example/ecolim/NuevaRecoleccionActivity.java   | 106 [32m++++[m[31m-[m
+ .../java/com/example/ecolim/ReportesActivity.java  | 135 [32m+++++[m[31m-[m
+ app/src/main/res/layout/activity_clientes.xml      | 115 [32m++[m[31m---[m
+ app/src/main/res/layout/activity_configuracion.xml |  62 [32m+[m[31m--[m
+ app/src/main/res/layout/activity_confirmacion.xml  | 185 [32m++++[m[31m----[m
+ app/src/main/res/layout/activity_dashboard.xml     | 304 [32m+++++++[m[31m------[m
+ .../main/res/layout/activity_detalle_residuo.xml   | 174 [32m+++++[m[31m---[m
+ app/src/main/res/layout/activity_historial.xml     |  61 [32m+[m[31m--[m
+ app/src/main/res/layout/activity_main.xml          | 210 [32m++++[m[31m-----[m
+ .../main/res/layout/activity_nueva_recoleccion.xml | 150 [32m++++[m[31m---[m
+ app/src/main/res/layout/activity_reportes.xml      | 158 [32m++++[m[31m---[m
+ app/src/main/res/values/colors.xml                 |  15 [32m+[m[31m-[m
+ app/src/main/res/values/dimens.xml                 |   8 [32m+[m[31m-[m
+ app/src/main/res/values/strings.xml                |  45 [32m+[m[31m-[m
+ app/src/main/res/values/themes.xml                 |  13 [32m+[m[31m-[m
+ build.gradle.kts                                   |  50 [32m++[m[31m-[m
+ gradle/libs.versions.toml                          |  13 [32m+[m[31m-[m
+ 26 files changed, 1883 insertions(+), 1018 deletions(-)

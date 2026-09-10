@@ -1,49 +1,64 @@
 package com.example.ecolim;
 
-import android.database.Cursor;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
-import java.util.ArrayList;
+import android.view.View;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.ecolim.adapter.HistorialAdapter;
+import com.example.ecolim.util.DateUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/** Pantalla bonus (no pedida por el mockup de 10 pantallas): historial completo de recolecciones. */
 public class HistorialActivity extends AppCompatActivity {
 
-    private ListView lvHistorial;
+    private RecyclerView rvHistorial;
+    private TextView tvSinHistorial;
     private DatabaseHelper dbHelper;
-    private ArrayList<String> listaHistorial;
-    private ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_historial); // Asegúrate de que el XML tenga un ListView con id @+id/lvHistorial
+        setContentView(R.layout.activity_historial);
 
-        lvHistorial = findViewById(R.id.lvHistorial);
         dbHelper = new DatabaseHelper(this);
-        listaHistorial = new ArrayList<>();
+        rvHistorial = findViewById(R.id.rvHistorial);
+        rvHistorial.setLayoutManager(new LinearLayoutManager(this));
+        tvSinHistorial = findViewById(R.id.tvSinHistorial);
 
+        TextView btnVolver = findViewById(R.id.btnVolver);
+        btnVolver.setOnClickListener(v -> finish());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         cargarDatosHistorial();
     }
 
     private void cargarDatosHistorial() {
-        Cursor cursor = dbHelper.obtenerHistorial();
+        List<String[]> filasCrudas = dbHelper.obtenerHistorial();
 
-        if (cursor.getCount() == 0) {
-            Toast.makeText(this, "No hay recolecciones registradas aún", Toast.LENGTH_SHORT).show();
-        } else {
-            while (cursor.moveToNext()) {
-                String cliente = cursor.getString(1); // Columna cliente
-                String kilos = cursor.getString(2);    // Columna kilos
-                String fecha = cursor.getString(3);    // Columna fecha
-
-                String registro = "Cliente: " + cliente + "\nKilos: " + kilos + " kg\nFecha: " + fecha;
-                listaHistorial.add(registro);
-            }
-
-            adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaHistorial);
-            lvHistorial.setAdapter(adapter);
+        if (filasCrudas.isEmpty()) {
+            tvSinHistorial.setVisibility(View.VISIBLE);
+            rvHistorial.setVisibility(View.GONE);
+            return;
         }
+
+        tvSinHistorial.setVisibility(View.GONE);
+        rvHistorial.setVisibility(View.VISIBLE);
+
+        // Formateamos la fecha ISO (yyyy-MM-dd) a dd/MM/yyyy antes de mostrarla.
+        List<String[]> filas = new ArrayList<>();
+        for (String[] fila : filasCrudas) {
+            filas.add(new String[]{fila[0], fila[1], fila[2], DateUtil.isoToDisplay(fila[3]), fila[4], fila[5]});
+        }
+
+        rvHistorial.setAdapter(new HistorialAdapter(filas));
     }
 }
